@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Management</title>
+  <script src="https://kit.fontawesome.com/62fbc98624.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="Base.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  
+  
+</head>
+<body>
+  <nav class="navbar navbar-light bg-light">
+    <button class="navbar-toggler" type="button" id="sidebarToggle">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <i class="fa-solid fa-house navbar-brand"></i>
+    <span class="navbar-brand">Super Admin</span>
+    <div class="d-flex align-items-center ml-auto">
+      <span class="mr-2">Adarsh Santhosh</span>
+      <i class="fa-solid fa-user"></i>
+    </div>
+  </nav>
+  <div class="d-flex">
+    <div class="sidebar" id="sidebarMenu">
+      <a href="#" class="navbar-brand font">Super Admin</a>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link font" href="#projectInfoTabNav">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font" href="#" id="projectsTab">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font" href="#">Notifications</a>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="content" id="mainContent">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="projectsTabNav">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#" id="projectInfoTabNav">Project Info</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" id="manageAccessTabNav">Manage Access</a>
+        </li>
+      </ul>
+      <div id="Projects" class="tab-content mt-3">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Work Order No</th>
+              <th>Project Name</th>
+              <th>Start Date</th>
+              <th>End Date</th>
+              <th>Customer Name</th>
+              <th>Status</th>
+              <th>Remarks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>PROJ001</td>
+              <td>APIT 1</td>
+              <td></td>
+              <td></td>
+              <td>Adarsh</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>PROJ002</td>
+              <td>APIT 2</td>
+              <td></td>
+              <td></td>
+              <td>Adarsh</td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div id="projectInfoContent" class="mt-3" style="display: none;">
+        <div class="form-group mt-3">
+          <label for="woNumber">WO Number</label>
+          <select class="form-control" id="woNumber">
+            <option>1</option>
+          </select>
+        </div>
+        <div class="form-section">
+          <h5>Summary BOM</h5>
+          <div id="categorySection">
+            <div class="form-group">
+              <label for="category">Category</label>
+              <div class="input-group mb-3">
+                <select class="form-control" id="category">
+                  <option>Aspiration Ducting</option>
+                </select>
+                <div class="input-group-append">
+                  <button class="btn-green" onclick="addRow('categorySection')">+</button>
+                  <button class="btn-green" onclick="removeRow('categorySection')">-</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-section">
+          <h5>Design</h5>
+          <div id="designSection">
+            <div class="form-row mb-3">
+              <div class="form-group col-md-3">
+                <label for="employeesDesign">Employees</label>
+                <input type="text" class="form-control" value="Adarsh">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="roleDesign">Role</label>
+                <select class="form-control">
+                  <option>Design Lead</option>
+                  <option>Select Role</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="startDateDesign">Start Date</label>
+                <input type="date" class="form-control">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="endDateDesign">End Date</label>
+                <input type="date" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div>
+            <button class="btn-green" onclick="addRow('designSection')">+</button>
+            <button class="btn-green" onclick="removeRow('designSection')">-</button>
+          </div>
+        </div>
+        <div class="form-section">
+          <h5>PPE</h5>
+          <div id="ppeSection">
+            <div class="form-row mb-3">
+              <div class="form-group col-md-3">
+                <label for="employeesPpe">Employees</label>
+                <input type="text" class="form-control" value="Adarsh">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="rolePpe">Role</label>
+                <select class="form-control">
+                  <option>PPE Lead</option>
+                  <option>Select Role</option>
+                </select>
+              </div>
+              <div class="form-group col-md-3">
+                <label for="startDatePpe">Start Date</label>
+                <input type="date" class="form-control">
+              </div>
+              <div class="form-group col-md-3">
+                <label for="endDatePpe">End Date</label>
+                <input type="date" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div>
+            <button class="btn-green" onclick="addRow('ppeSection')">+</button>
+            <button class="btn-green" onclick="removeRow('ppeSection')">-</button>
+          </div>
+        </div>
+      </div>
+      <div id="ManageAccess" class="tab-content mt-3" style="display: none;">
+        <div class="filter mb-3">
+            <label for="wo-number">WO Number:</label>
+            <input type="text" id="wo-number" class="form-control d-inline-block ml-2" style="width: 150px;">
+            <label for="department" class="ml-2">Department:</label>
+            <select id="department" class="form-control d-inline-block ml-2" style="width: 150px;">
+              <option value="">Select Department</option>
+            </select>
+            <label for="employee" class="ml-2">Employee:</label>
+            <select id="employee" class="form-control d-inline-block ml-2" style="width: 150px;">
+              <option value="">Select Employee</option>
+            </select>
+        </div>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Module Name</th>
+              <th>Create</th>
+              <th>Read</th>
+              <th>Update</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>Module 1</td>
+                  <td><input type="checkbox" checked></td>
+                  <td><input type="checkbox"></td>
+                  <td><input type="checkbox" checked></td>
+                  <td><input type="checkbox"></td>
+              </tr>
+              <tr>
+                  <td>Module 2</td>
+                  <td><input type="checkbox"></td>
+                  <td><input type="checkbox"></td>
+                  <td><input type="checkbox"></td>
+                  <td><input type="checkbox"></td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+  document.getElementById('sidebarToggle').addEventListener('click', function () {
+    document.getElementById('sidebarMenu').classList.toggle('collapsed');
+    document.getElementById('mainContent').classList.toggle('expanded');
+  });
+
+  document.getElementById('projectsTabNav').addEventListener('click', function () {
+    showTabContent('Projects');
+  });
+
+  document.getElementById('projectInfoTabNav').addEventListener('click', function () {
+    showTabContent('projectInfoContent');
+  });
+
+  document.getElementById('manageAccessTabNav').addEventListener('click', function () {
+    showTabContent('ManageAccess');
+  });
+
+  function showTabContent(tabId) {
+    document.getElementById('Projects').style.display = 'none';
+    document.getElementById('projectInfoContent').style.display = 'none';
+    document.getElementById('ManageAccess').style.display = 'none';
+
+    document.getElementById(tabId).style.display = 'block';
+  }
+
+  function addRow(sectionId) {
+    const section = document.getElementById(sectionId);
+    const newRow = section.children[0].cloneNode(true);
+    section.appendChild(newRow);
+  }
+
+  function removeRow(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section.children.length > 1) {
+      section.removeChild(section.lastElementChild);
+    }
+  }
+</script>
+</body>
+</html>
